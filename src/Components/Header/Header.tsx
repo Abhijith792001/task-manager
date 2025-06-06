@@ -15,15 +15,15 @@ function Header() {
         <div className='mb-6'>
           <div className='bg-white rounded-2xl p-1 shadow-sm border border-gray-100 inline-block'>
             <button className='px-6 py-2.5 bg-[#4b0082] text-white rounded-xl font-medium text-sm shadow-sm hover:bg-[#3d006b] transition-colors'>
-              All Task
+              Create Task
             </button>
           </div>
         </div>
 
         <div className='grid grid-cols-12 gap-6 mb-4'>
-     
-            <Card />
-      
+
+          <Card />
+
         </div>
       </div>
     </>

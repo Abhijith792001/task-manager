@@ -1,10 +1,12 @@
 
 import { LogOut, Bell } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import {useNavigate} from 'react-router-dom'
 
 function NavBar() {
 
-    const [greetings, setGreetings] = useState('')
+    const [greetings, setGreetings] = useState('');
+    const navigate = useNavigate();
     useEffect(() => {
         let now = new Date()
         let currentHour = now.getHours();
@@ -52,7 +54,9 @@ function NavBar() {
                             </div>
                         </div>
 
-                        <button className="flex items-center gap-2 px-4 py-2 bg-gray-50 hover:bg-gray-100 text-gray-700 rounded-full transition-colors text-sm font-medium">
+                        <button
+                        onClick={()=> navigate('login')}
+                        className="flex items-center gap-2 px-4 py-2 bg-gray-50 hover:bg-gray-100 text-gray-700 rounded-full transition-colors text-sm font-medium">
                             <LogOut className="w-4 h-4" />
                             <span className="hidden sm:inline">Logout</span>
                         </button>
