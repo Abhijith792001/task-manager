@@ -1,16 +1,16 @@
 import './App.css'
-import Header from './Components/Header/Header'
-import NavBar from './Components/NavBar/NavBar'
+
 import '@fontsource/open-sans';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from '../src/pages/Home';
 import Login from './Components/Login/Login';
+import PrivateRoute from './service/Auth';
 
 function App() {
   return (
-    <BrowserRouter>
+   <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Home />} />
+        <Route path='/' element={<PrivateRoute><Home /></PrivateRoute>} />
         <Route path='/login' element={<Login />} />
       </Routes>
     </BrowserRouter>

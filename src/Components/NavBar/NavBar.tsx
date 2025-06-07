@@ -2,10 +2,12 @@
 import { LogOut, Bell } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import {useNavigate} from 'react-router-dom'
+import { supabase } from '../../service/api';
 
 function NavBar() {
 
     const [greetings, setGreetings] = useState('');
+    const [error , setError] =useState()
     const navigate = useNavigate();
     useEffect(() => {
         let now = new Date()
@@ -24,6 +26,11 @@ function NavBar() {
             setGreetings('Poyi Kidan Urag')
         }
     }, [])
+
+  async  function logOut (){
+        let{error} = await supabase.auth.signOut();
+        navigate('login')
+    }
 
     return (
         <div className="bg-white border-b border-gray-100 sticky top-0 z-50">
@@ -55,7 +62,7 @@ function NavBar() {
                         </div>
 
                         <button
-                        onClick={()=> navigate('login')}
+                        onClick={ logOut}
                         className="flex items-center gap-2 px-4 py-2 bg-gray-50 hover:bg-gray-100 text-gray-700 rounded-full transition-colors text-sm font-medium">
                             <LogOut className="w-4 h-4" />
                             <span className="hidden sm:inline">Logout</span>
