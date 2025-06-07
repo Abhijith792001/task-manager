@@ -66,7 +66,7 @@ function Login() {
     >
       {loding ? 'Logging In...' : 'Login'}
     </button>
-
+    <p className='mt-3 text-red-500'>{error}</p>
     <p className="mt-4 text-sm text-gray-500">
       Don't have an account? <a href="#" className="text-indigo-600 hover:underline">Sign up</a>
     </p>
