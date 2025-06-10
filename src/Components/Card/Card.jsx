@@ -4,14 +4,12 @@ import { supabase } from '../../service/api';
 function Card() {
 
     const [todos, setTodos] = useState([]);
-    const [title, setTitle] = useState('');
     const [completed, setCompleted] = useState([]);
-    const [description, setDescription] = useState('');
     const [loading, setLoading] = useState(true)
 
-    useEffect(() => {
-        getTodos();
-    }, [])
+    useEffect(()=>{
+        getTodos()
+    },[])
     async function getTodos() {
         const { data } = await supabase.from('todos').select('*');
         if (data) {
@@ -76,7 +74,7 @@ function Card() {
                                 </p>
 
                                 <div className="flex items-center justify-between">
-                                    <span className={`${obj.status? 'bg-green-50 text-green-700 border-green-200' : 'bg-amber-50 text-amber-700 border-amber-200'} px-3 py-1.5  text-sm font-medium rounded-full border `}>
+                                    <span className={`${obj.status ? 'bg-green-50 text-green-700 border-green-200' : 'bg-amber-50 text-amber-700 border-amber-200'} px-3 py-1.5  text-sm font-medium rounded-full border `}>
                                         {`${obj.status ? 'Completed' : 'In Progress'}`}
                                     </span>
                                     <span className="text-xs text-gray-400 font-medium">{new Date(obj.created_at).toLocaleTimeString()}</span>
